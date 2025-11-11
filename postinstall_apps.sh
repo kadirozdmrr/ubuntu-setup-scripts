@@ -52,7 +52,7 @@ fi
 
 # --- Spotify ---
 if ! command -v spotify >/dev/null 2>&1; then
-    if ask_install "❓Do you want to install Spotify?"; then
+    if ask_install "❓Install Spotify?"; then
         echo "Select installation method:"
         PS3="Choose 1 or 2: "
         options=("Flatpak (Community Maintained Open Source)" "Snap (Officially Supported Closed Source)")
@@ -147,13 +147,14 @@ if ! flatpak list | grep -q org.videolan.VLC && ask_install "❓Install VLC (Fla
     echo ""
 fi
 
-# --- JetBrains Toolbox ---
+# --- JetBrains Toolbox (disabled temporarily) ---
+: '
 if [ ! -f "$HOME/.local/share/applications/jetbrains-toolbox.desktop" ]; then
     if ask_install "❓Do you want to install JetBrains Toolbox?"; then
         echo "⬇️ Downloading JetBrains Toolbox..."
         # Get latest JetBrains Toolbox URL from JetBrains website
         TOOLBOX_URL=$(curl -s https://data.services.jetbrains.com/products/releases?code=TBA&latest=true&type=release \
-    | grep -oP '(?<=linux":\{"link":")[^"]+')
+    | grep -oP "(?<=linux\":\{\"link\":\")[^\"]+")
         TOOLBOX_TMP="/tmp/jetbrains-toolbox.tar.gz"
         curl -L -o "$TOOLBOX_TMP" "$TOOLBOX_URL"
 
@@ -186,6 +187,8 @@ EOF
         echo "✅ JetBrains Toolbox installed and desktop entry created!"
     fi
 fi
+'
+
 
 
 echo -e "\n🎉 App installation script completed!"
