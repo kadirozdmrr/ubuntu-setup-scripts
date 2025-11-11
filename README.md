@@ -1,5 +1,30 @@
-Bash scripts that help installing firefox .deb, adding flatpak, installing popular apps, setting up docker, installing some devtool(JDK,build-essential,gdb), configuring terminal and setting up MSSQL Server 2022 inside docker. 
+🧰 Ubuntu Setup Scripts
 
-To use it you need git, curl and wget installed then run the below command in your terminal:
+A collection of Bash scripts that help you quickly set up a fresh Ubuntu installation, you can choose which ones to run.
 
+Scripts include help for setting up:
+
+- 🦊 **Firefox (.deb)** version  
+- 📦 **Flatpak** with the **Flathub** repository  
+- ⚙️ **Popular apps** and developer utilities  
+- 🐋 **Docker** & Docker Compose  
+- 🧱 **Microsoft SQL Server 2022** inside Docker  
+- ☕ **Development tools** (JDK, `build-essential`, `gdb` for now) 
+- 💻 **Terminal configuration tweaks**  
+
+---
+
+⚙️ Requirements
+
+Before running the setup, ensure you have the following basic tools installed:
+
+```bash
+sudo apt update && sudo apt install git curl wget
+
+🚀 Run the Setup
+
+Just run the following one-liner in your terminal:
+
+```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/kadirozdmrr/ubuntu-setup-scripts/main/main.sh)
+
