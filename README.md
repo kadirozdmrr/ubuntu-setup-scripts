@@ -20,6 +20,7 @@ Before running the setup, ensure you have the following basic tools installed:
 
 ```bash
 sudo apt update && sudo apt install git curl wget
+```
 
 🚀 Run the Setup
 
@@ -27,4 +28,5 @@ Just run the following one-liner in your terminal:
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/kadirozdmrr/ubuntu-setup-scripts/main/main.sh)
+```
 
