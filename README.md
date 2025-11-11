@@ -9,7 +9,7 @@ Scripts include help for setting up:
 - ⚙️ **Popular apps** and developer utilities  
 - 🐋 **Docker** & Docker Compose  
 - 🧱 **Microsoft SQL Server 2022** inside Docker  
-- ☕ **Development tools** (JDK, `build-essential`, `gdb` for now) 
+- ☕ **Development tools** (`default-jdk`, `build-essential`, `gdb` for now) 
 - 💻 **Terminal configuration tweaks**  
 
 ---
@@ -19,7 +19,7 @@ Scripts include help for setting up:
 Before running the setup, ensure you have the following basic tools installed:
 
 ```bash
-sudo apt update && sudo apt install git curl wget
+sudo apt update && sudo apt install curl wget
 ```
 
 🚀 Run the Setup
