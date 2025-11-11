@@ -14,7 +14,7 @@ fi
 ask_install() {
     local prompt="$1"
     while true; do
-        read -rp "$prompt [y/n]: " yn
+        read -rp "$prompt [y/N]: " yn
         case $yn in
             [Yy]*) return 0 ;;
             [Nn]*) return 1 ;;
@@ -149,7 +149,7 @@ fi
 
 # --- JetBrains Toolbox ---
 if [ ! -f "$HOME/.local/share/applications/jetbrains-toolbox.desktop" ]; then
-    if ask_install "❓Do you want to install JetBrains Toolbox?"; then
+    if ask_install "❓Install JetBrains Toolbox?"; then
         echo "⬇️ Downloading JetBrains Toolbox..."
         TOOLBOX_URL=$(curl -s "https://data.services.jetbrains.com/products/releases?code=TBA&latest=true&type=release" \
             | sed -n 's/.*linux":{"link":"\([^"]*\)".*/\1/p')
