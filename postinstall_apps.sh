@@ -147,14 +147,12 @@ if ! flatpak list | grep -q org.videolan.VLC && ask_install "❓Install VLC (Fla
     echo ""
 fi
 
-# --- JetBrains Toolbox (disabled temporarily) ---
-: '
+# --- JetBrains Toolbox ---
 if [ ! -f "$HOME/.local/share/applications/jetbrains-toolbox.desktop" ]; then
     if ask_install "❓Do you want to install JetBrains Toolbox?"; then
         echo "⬇️ Downloading JetBrains Toolbox..."
-        # Get latest JetBrains Toolbox URL from JetBrains website
-        TOOLBOX_URL=$(curl -s https://data.services.jetbrains.com/products/releases?code=TBA&latest=true&type=release \
-    | grep -oP "(?<=linux\":\{\"link\":\")[^\"]+")
+        TOOLBOX_URL=$(curl -s "https://data.services.jetbrains.com/products/releases?code=TBA&latest=true&type=release" \
+            | sed -n 's/.*linux":{"link":"\([^"]*\)".*/\1/p')
         TOOLBOX_TMP="/tmp/jetbrains-toolbox.tar.gz"
         curl -L -o "$TOOLBOX_TMP" "$TOOLBOX_URL"
 
@@ -179,16 +177,10 @@ Terminal=false
 MimeType=x-scheme-handler/jetbrains;
 X-GNOME-Autostart-enabled=true
 StartupNotify=false
-X-GNOME-Autostart-Delay=10
-X-MATE-Autostart-Delay=10
-X-KDE-autostart-after=panel
 EOF
 
         echo "✅ JetBrains Toolbox installed and desktop entry created!"
     fi
 fi
-'
-
-
 
 echo -e "\n🎉 App installation script completed!"
