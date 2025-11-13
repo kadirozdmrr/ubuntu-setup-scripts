@@ -22,11 +22,12 @@ Before running the setup, ensure you have the following basic tools installed:
 sudo apt update && sudo apt install curl wget
 ```
 
-🚀 Run the Setup
+🚀 Install the Scripts:
 
 Just run the following one-liner in your terminal:
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/kadirozdmrr/ubuntu-setup-scripts/main/downloader.sh)
 ```
+This will install scripts to .ubuntu-setup-scripts in your home folder and automatically launch the master setup menu. Afterwards you can manually launch main.sh to use master setup menu again which also includes an option for updating the scripts.
 

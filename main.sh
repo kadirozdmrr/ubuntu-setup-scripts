@@ -34,7 +34,7 @@ while true; do
         3) bash "$APPS_SCRIPT" ;;
         4) bash "$DOCKER_SCRIPT" ;;
         5) bash "$MSSQL_SCRIPT" ;;
-        6) bash "$SCRIPT_UPDATER_SCRIPT" ;;
+        6) exec bash "$SCRIPT_UPDATER_SCRIPT" ;;
         7) bash "$APP_UPDATER_SCRIPT" ;;    
         0) echo "👋 Exiting."; break ;;
         *) echo "⚠️ Invalid option." ;;

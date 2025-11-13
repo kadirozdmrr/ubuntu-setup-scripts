@@ -85,7 +85,7 @@ fetch_heroic() {
     local URL
     URL=$(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases/latest \
         | grep browser_download_url | grep '\.deb' | cut -d '"' -f 4 | head -n 1 || true)
-    update_deb "heroic-games-launcher" "Heroic Games Launcher" "$URL"
+    update_deb "heroic" "Heroic Games Launcher" "$URL"
 }
 
 fetch_minecraft() {
