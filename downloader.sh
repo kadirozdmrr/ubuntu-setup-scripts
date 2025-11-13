@@ -3,7 +3,7 @@ set -euo pipefail
 
 REPO_URL="https://raw.githubusercontent.com/kadirozdmrr/ubuntu-setup-scripts/main"
 WORKDIR="$HOME/.ubuntu-setup-scripts"
-
+MAIN_SCRIPT="main.sh"
 mkdir -p "$WORKDIR"
 cd "$WORKDIR" || exit 1
 
