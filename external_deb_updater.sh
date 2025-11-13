@@ -22,6 +22,16 @@ is_installed() {
     dpkg -s "$1" &>/dev/null
 }
 
+# Check multiple possible package names
+is_installed_any() {
+    for name in "$@"; do
+        if is_installed "$name"; then
+            return 0
+        fi
+    done
+    return 1
+}
+
 # --- Helper: download + update ---
 update_deb() {
     local pkg_name="$1"
