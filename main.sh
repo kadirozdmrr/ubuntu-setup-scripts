@@ -24,7 +24,7 @@ while true; do
     echo "4) Docker Engine"
     echo "5) MSSQL Server 2022"
     echo "6) Update Scripts"
-    echo "7) Update External .deb Packages"
+    echo "7) Update the System"
     echo "0) Exit"
     read -rp "Choose an option: " choice
 
@@ -35,7 +35,7 @@ while true; do
         4) bash "$DOCKER_SCRIPT" ;;
         5) bash "$MSSQL_SCRIPT" ;;
         6) exec bash "$SCRIPT_UPDATER_SCRIPT" ;;
-        7) bash "$APP_UPDATER_SCRIPT" ;;    
+        7) bash "update" ;;    
         0) echo "👋 Exiting."; break ;;
         *) echo "⚠️ Invalid option." ;;
     esac

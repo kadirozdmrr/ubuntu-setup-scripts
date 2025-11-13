@@ -11,13 +11,13 @@ Scripts include help for setting up:
 - 🧱 **Microsoft SQL Server 2022** inside Docker  
 - ☕ **Development tools** (`default-jdk`, `build-essential`, `gdb` for now) 
 - 💻 **Terminal configuration tweaks**
-- 🆕 External .deb Updating (Zoom, Discord, Heroic Games Launcher, Minecraft Launcher)  
+- 🆕 **Update the System Including External .deb Packages (Zoom, Discord, Heroic Games Launcher, Minecraft Launcher)**  
 
 ---
 
 ⚙️ Requirements
 
-Before running the setup, ensure you have the following basic tools installed:
+Before running the downloader, ensure you have the following basic tools installed:
 
 ```bash
 sudo apt update && sudo apt install curl wget
