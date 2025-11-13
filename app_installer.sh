@@ -89,17 +89,15 @@ for num in "${selections[@]}"; do
         3) install_flatpak "Discord" "com.discordapp.Discord" ;;
         4) install_flatpak "Spotify" "com.spotify.Client" ;;
         5) install_snap "Spotify" "spotify" ;;
-        6)
-            sudo apt install -y software-properties-common apt-transport-https wget
-            wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/microsoft.gpg
-            sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://packages.microsoft.com/repos/code stable main"
-            sudo apt update
-            sudo apt install -y code
+        6) #adds the repo automatically
+            echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections 
+            URL="https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+            install_deb "$URL" "Visual Studio Code"
             ;;
+            
         7) install_deb "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" "Google Chrome" ;;
         8) install_flatpak "OBS Studio" "com.obsproject.Studio" ;;
-        9)
-            sudo add-apt-repository -y ppa:obsproject/obs-studio
+        9) sudo add-apt-repository -y ppa:obsproject/obs-studio
             sudo apt update
             sudo apt install -y obs-studio
             ;;
