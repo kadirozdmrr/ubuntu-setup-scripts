@@ -27,6 +27,6 @@ sudo apt update && sudo apt install curl wget
 Just run the following one-liner in your terminal:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/kadirozdmrr/ubuntu-setup-scripts/main/main.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/kadirozdmrr/ubuntu-setup-scripts/main/downloader.sh)
 ```
 
