@@ -13,7 +13,7 @@ fi
 install_deb() {
     local url="$1"
     local name="$2"
-    local tmp="/tmp/$(basename "$url")"
+    local tmp="/tmp/${name// /_}.deb"  
 
     echo "⬇️ Installing $name..."
     wget -q --show-progress -O "$tmp" "$url"
