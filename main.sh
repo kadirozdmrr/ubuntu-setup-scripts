@@ -42,7 +42,7 @@ while true; do
     flatpak update -y
     echo -e "✅\n Flatpak packages are updated!\n"
     echo -e "\n🔄 Updating the snap packages..."
-    sudo snap refresh -y
+    sudo snap refresh
     echo -e "✅\n Snap packages are updated!\n"
     bash "$HOME/.ubuntu-setup-scripts/script_updater.sh" --silent
     echo -e "\n🔄 Updating external .deb packages..."
