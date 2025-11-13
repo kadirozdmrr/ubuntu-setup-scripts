@@ -51,19 +51,19 @@ install_snap() {
 # --- App menu ---
 apps=(
 "Steam (.deb) — Official"
-"Discord (.deb) — Official but No Auto-Updates, It Will Just Tell You When There's an Update"
-"Discord (Flatpak) — Community/Partial Official and Auto Updates"
+"Discord (.deb) — Official but No Auto-Updates, It Will Just Tell You When There's An Update"
+"Discord (Flatpak) — Community/Partially Official and Auto Updates"
 "Spotify (Flatpak) — Community Maintained"
 "Spotify (Snap) — Official"
-"VSCode (.deb) — Official"
-"Google Chrome (.deb) — Official"
+"VSCode (.deb) — Official, Microsoft Repo Added"
+"Google Chrome (.deb) — Official, Google Repo Added"
 "OBS Studio (Flatpak) — Official"
 "OBS Studio (PPA) — Official"
-"Heroic Games Launcher (.deb) — Official but No Auto-Updates"
-"Heroic Games Launcher (Flatpak) — Official and Auto-Updates"
-"Prism Launcher (Flatpak) — Official (from Prism Launcher Devs)"
-"Zoom (.deb) — Official but No Auto-Updates"
-"Minecraft Launcher (.deb) — Official but No Auto-Updates (from Mojang)"
+"Heroic Games Launcher (.deb) — Official"
+"Heroic Games Launcher (Flatpak) — Official"
+"Prism Launcher (Flatpak) — Community Project but Highly Recommended"
+"Zoom (.deb) — Official"
+"Minecraft Launcher (.deb) — Official from Mojang"
 "qBittorrent — Official in repo"
 "GIMP — Official in repo"
 "VLC (Flatpak) — Community Maintained"
@@ -120,4 +120,4 @@ for num in "${selections[@]}"; do
     esac
 done
 
-echo -e "\n🎉 Selected apps installed! Do not forget to use 'Update the System' option in main menu for updating them and the system."
+echo -e "\n🎉 Selected apps installed! Do not forget to use 'Update the System' option in main menu for updating them and also the system."
