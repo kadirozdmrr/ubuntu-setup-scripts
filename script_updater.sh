@@ -3,6 +3,7 @@ set -euo pipefail
 
 REPO_URL="https://raw.githubusercontent.com/kadirozdmrr/ubuntu-setup-scripts/main"
 WORKDIR="$HOME/.ubuntu-setup-scripts"
+MAIN_SCRIPT="main.sh"
 cd "$WORKDIR" || { echo "❌ Scripts folder not found."; exit 1; }
 
 SCRIPTS=("docker.sh" "mssql.sh" "firefox_flatpak.sh" "devtools_terminal.sh" "app_installer.sh" "external_deb_updater.sh" "main.sh")

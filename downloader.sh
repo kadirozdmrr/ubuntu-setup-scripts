@@ -16,4 +16,11 @@ for script in "${SCRIPTS[@]}"; do
     chmod +x "$WORKDIR/$script"
 done
 
-echo -e "\n✅ All scripts downloaded. You can now run $WORKDIR/main.sh"
+echo -e "\n✅ All scripts downloaded."
+
+# Launch main script
+if [[ -f "$WORKDIR/$MAIN_SCRIPT" ]]; then
+    exec bash "$WORKDIR/$MAIN_SCRIPT"
+else
+    echo "⚠️ Main script not found. You can run it manually: $WORKDIR/$MAIN_SCRIPT"
+fi
