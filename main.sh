@@ -35,7 +35,13 @@ while true; do
         4) bash "$DOCKER_SCRIPT" ;;
         5) bash "$MSSQL_SCRIPT" ;;
         6) exec bash "$SCRIPT_UPDATER_SCRIPT" ;;
-        7) bash "update" ;;    
+        7)  echo "🔄 Updating the system..."
+    sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+    flatpak update -y
+    sudo snap refresh
+    bash "$HOME/.ubuntu-setup-scripts/external_deb_updater.sh"
+    echo -e "\n✅ System update completed, PC restart is recommended."
+    ;;    
         0) echo "👋 Exiting."; break ;;
         *) echo "⚠️ Invalid option." ;;
     esac
