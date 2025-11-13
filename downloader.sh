@@ -8,7 +8,7 @@ mkdir -p "$WORKDIR"
 cd "$WORKDIR" || exit 1
 
 # Script list
-SCRIPTS=("docker.sh" "mssql.sh" "firefox_.sh" "devtools_terminal.sh" "app_installer.sh" "external_deb_updater.sh" "main.sh" "script_updater.sh" "flatpak_setup.sh") 
+SCRIPTS=("docker.sh" "mssql.sh" "firefox_apt.sh" "devtools_terminal.sh" "app_installer.sh" "external_deb_updater.sh" "main.sh" "script_updater.sh" "flatpak_setup.sh") 
 
 for script in "${SCRIPTS[@]}"; do
     echo "⬇️ Downloading $script..."
