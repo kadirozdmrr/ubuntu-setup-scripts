@@ -13,7 +13,7 @@ DOCKER_SCRIPT="docker.sh"
 MSSQL_SCRIPT="mssql.sh"
 FF_FIREFOX_SCRIPT="firefox_flatpak.sh"
 DEV_TERMINAL_SCRIPT="devtools_terminal.sh"
-APPS_SCRIPT="postinstall_apps.sh"
+APPS_SCRIPT="app_installer.sh"
 
 SCRIPTS=("$DOCKER_SCRIPT" "$MSSQL_SCRIPT" "$FF_FIREFOX_SCRIPT" "$DEV_TERMINAL_SCRIPT" "$APPS_SCRIPT")
 
@@ -42,7 +42,7 @@ while true; do
     echo "--------------------------"
     echo "1) Firefox + Flatpak setup"
     echo "2) Devtools & Terminal setup"
-    echo "3) Postinstall apps"
+    echo "3) App Installer"
     echo "4) Docker Engine"
     echo "5) MSSQL Server 2022"
     echo "6) Update scripts"
