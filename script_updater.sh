@@ -6,7 +6,7 @@ WORKDIR="$HOME/.ubuntu-setup-scripts"
 MAIN_SCRIPT="main.sh"
 cd "$WORKDIR" || { echo "❌ Scripts folder not found."; exit 1; }
 
-echo -e "\n🔄 Updating the scripts..."
+echo -e "\n🔄 Updating the scripts...\n"
 
 # --- Robust flag check ---
 SILENT=false

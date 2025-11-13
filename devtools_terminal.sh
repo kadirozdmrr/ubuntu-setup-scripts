@@ -33,7 +33,7 @@ aliases=(
     ["lt"]="eza -aT --color=always --group-directories-first --icons"
     ["l."]="eza -a | grep -e '^\.'"
     ["fastfetch"]="fastfetch -c examples/10"
-    ["update"]="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && flatpak update -y && sudo snap refresh && bash $HOME/.ubuntu-setup-scripts/external_deb_updater.sh"
+    ["update"]="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && flatpak update -y && sudo snap refresh && bash "$HOME/.ubuntu-setup-scripts/script_updater.sh" --silent && bash $HOME/.ubuntu-setup-scripts/external_deb_updater.sh"
 )
 for alias_name in "${!aliases[@]}"; do
     if ! grep -q "alias $alias_name=" "$HOME/.bash_aliases"; then

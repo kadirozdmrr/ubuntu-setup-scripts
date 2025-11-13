@@ -38,16 +38,16 @@ while true; do
         7)  echo "🔄 Updating the system packages..."
     sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
     echo -e "✅\n System packages are updated!\n"
-    echo -e "\n🔄 Updating the flatpak packages..."
+    echo -e "\n🔄 Updating the flatpak packages...\n"
     flatpak update -y
-    echo -e "✅\n Flatpak packages are updated!\n"
+    echo -e "\n✅ Flatpak packages are updated!\n"
     echo -e "\n🔄 Updating the snap packages..."
     sudo snap refresh
-    echo -e "✅\n Snap packages are updated!\n"
+    echo -e "\n✅ Snap packages are updated!\n"
     bash "$HOME/.ubuntu-setup-scripts/script_updater.sh" --silent
-    echo -e "\n🔄 Updating external .deb packages..."
+    echo -e "\n🔄 Updating external .deb packages...\n"
     bash "$HOME/.ubuntu-setup-scripts/external_deb_updater.sh"
-    echo -e "✅\n External .deb packages are updated!\n"
+    echo -e "\n✅ External .deb packages are updated!\n"
     echo -e "\n🎉 System updates completed, restarting your PC is recommended."
     ;;    
         0) echo "👋 Exiting."; break ;;
