@@ -58,6 +58,7 @@ apps=(
 "VSCode (.deb) — Official"
 "Google Chrome (.deb) — Official"
 "OBS Studio (Flatpak) — Official"
+"OBS Studio (PPA) — Official"
 "Heroic Games Launcher (.deb) — Official but No Auto-Updates"
 "Heroic Games Launcher (Flatpak) — Official and Auto-Updates"
 "Prism Launcher (Flatpak) — Official (from Prism Launcher Devs)"
@@ -98,18 +99,23 @@ for num in "${selections[@]}"; do
         7) install_deb "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" "Google Chrome" ;;
         8) install_flatpak "OBS Studio" "com.obsproject.Studio" ;;
         9)
+            sudo add-apt-repository -y ppa:obsproject/obs-studio
+            sudo apt update
+            sudo apt install -y obs-studio
+            ;;
+        10)
             URL=$(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases/latest \
                   | grep browser_download_url | grep '\.deb' | cut -d '"' -f 4 | head -n 1)
             install_deb "$URL" "Heroic Games Launcher"
             ;;
-        10) install_flatpak "Heroic Games Launcher" "com.heroicgameslauncher.hgl" ;;
-        11) install_flatpak "Prism Launcher" "net.prismlauncher.PrismLauncher" ;;
-        12) install_deb "https://zoom.us/client/latest/zoom_amd64.deb" "Zoom" ;;
-        13) install_deb "https://launcher.mojang.com/download/Minecraft.deb" "Minecraft Launcher" ;;
-        14) sudo apt install -y qbittorrent ;;
-        15) sudo apt install -y gimp ;;
-        16) install_flatpak "VLC" "org.videolan.VLC" ;;
-        17) install_snap "VLC" "vlc" ;;
+        11) install_flatpak "Heroic Games Launcher" "com.heroicgameslauncher.hgl" ;;
+        12) install_flatpak "Prism Launcher" "net.prismlauncher.PrismLauncher" ;;
+        13) install_deb "https://zoom.us/client/latest/zoom_amd64.deb" "Zoom" ;;
+        14) install_deb "https://launcher.mojang.com/download/Minecraft.deb" "Minecraft Launcher" ;;
+        15) sudo apt install -y qbittorrent ;;
+        16) sudo apt install -y gimp ;;
+        17) install_flatpak "VLC" "org.videolan.VLC" ;;
+        18) install_snap "VLC" "vlc" ;;
         *) echo "⚠️ Invalid selection: $num" ;;
     esac
 done
