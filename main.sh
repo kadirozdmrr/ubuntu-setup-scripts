@@ -35,7 +35,7 @@ while true; do
         4) bash "$DOCKER_SCRIPT" ;;
         5) bash "$MSSQL_SCRIPT" ;;
         6) exec bash "$SCRIPT_UPDATER_SCRIPT" ;;
-        7)  echo "🔄 Updating the system packages..."
+        7)  echo "🔄 Updating the system packages...\n"
     sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
     echo -e "\n✅ System packages are updated!\n"
     echo -e "\n🔄 Updating the flatpak packages...\n"
