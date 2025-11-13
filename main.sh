@@ -37,15 +37,18 @@ while true; do
         6) exec bash "$SCRIPT_UPDATER_SCRIPT" ;;
         7)  echo "🔄 Updating the system packages..."
     sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+    echo -e "✅\n System packages are updated!\n"
     echo -e "\n🔄 Updating the flatpak packages..."
     flatpak update -y
+    echo -e "✅\n Flatpak packages are updated!\n"
     echo -e "\n🔄 Updating the snap packages..."
-    sudo snap refresh
-    echo -e "\n🔄 Updating the scripts...\n"
-    bash "$SCRIPT_UPDATER_SCRIPT --silent"
+    sudo snap refresh -y
+    echo -e "✅\n Snap packages are updated!\n"
+    bash "$SCRIPT_UPDATER_SCRIPT" --silent
     echo -e "\n🔄 Updating external .deb packages..."
     bash "$HOME/.ubuntu-setup-scripts/external_deb_updater.sh"
-    echo -e "\n✅ System update completed, restarting your PC is recommended."
+    echo -e "✅\n External .deb packages are updated!\n"
+    echo -e "\n🎉 System updates completed, restarting your PC is recommended."
     ;;    
         0) echo "👋 Exiting."; break ;;
         *) echo "⚠️ Invalid option." ;;
