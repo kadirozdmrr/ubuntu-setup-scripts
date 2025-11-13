@@ -16,7 +16,7 @@ for arg in "$@"; do
     esac
 done
 
-SCRIPTS=("docker.sh" "mssql.sh" "firefox_flatpak.sh" "devtools_terminal.sh" "app_installer.sh" "external_deb_updater.sh" "main.sh")
+SCRIPTS=("docker.sh" "mssql.sh" "firefox_apt.sh" "devtools_terminal.sh" "app_installer.sh" "external_deb_updater.sh" "main.sh" "flatpak_setup.sh" "script_updater.sh")
 
 for script in "${SCRIPTS[@]}"; do
     echo "\n🔄 Updating $script..."
