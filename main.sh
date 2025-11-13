@@ -23,8 +23,8 @@ while true; do
     echo "3) App Installer"
     echo "4) Docker Engine"
     echo "5) MSSQL Server 2022"
-    echo "6) Update Scripts"
-    echo "7) Update the System"
+    echo "6) Only Update Scripts"
+    echo "7) Update the System (Including External .deb Packages and Scripts)"
     echo "0) Exit"
     read -rp "Choose an option: " choice
 
@@ -35,12 +35,17 @@ while true; do
         4) bash "$DOCKER_SCRIPT" ;;
         5) bash "$MSSQL_SCRIPT" ;;
         6) exec bash "$SCRIPT_UPDATER_SCRIPT" ;;
-        7)  echo "🔄 Updating the system..."
+        7)  echo "🔄 Updating the system packages..."
     sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+    echo -e "\n🔄 Updating the flatpak packages..."
     flatpak update -y
+    echo -e "\n🔄 Updating the snap packages..."
     sudo snap refresh
+    echo -e "\n🔄 Updating the scripts..."
+    bash "$SCRIPT_UPDATER_SCRIPT" --silent
+    echo -e "\n🔄 Updating external .deb packages..."
     bash "$HOME/.ubuntu-setup-scripts/external_deb_updater.sh"
-    echo -e "\n✅ System update completed, PC restart is recommended."
+    echo -e "\n✅ System update completed, restarting your PC is recommended."
     ;;    
         0) echo "👋 Exiting."; break ;;
         *) echo "⚠️ Invalid option." ;;
