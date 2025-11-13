@@ -1,0 +1,117 @@
+#!/bin/bash
+set -euo pipefail
+
+echo "🚀 Starting App Installer..."
+
+# --- Check if Flatpak exists ---
+if ! command -v flatpak &> /dev/null; then
+    echo "⚠️ Flatpak not found. It's highly recommended to run the Flatpak setup script first."
+fi
+
+
+# --- Helper functions ---
+install_deb() {
+    local url="$1"
+    local name="$2"
+    local tmp="/tmp/$(basename "$url")"
+
+    echo "⬇️ Installing $name..."
+    wget -q --show-progress -O "$tmp" "$url"
+    sudo apt install -y "$tmp"
+    rm "$tmp"
+    echo "✅ $name installed!"
+}
+
+install_flatpak() {
+    local name="$1"
+    local ref="$2"
+
+    if flatpak list | grep -q "$ref"; then
+        echo "🔄 $name (Flatpak) already installed — skipping..."
+    else
+        echo "🆕 Installing $name via Flatpak..."
+        flatpak install -y flathub "$ref"
+        echo "✅ $name installed!"
+    fi
+}
+
+install_snap() {
+    local name="$1"
+    local ref="$2"
+
+    if snap list | grep -q "$ref"; then
+        echo "🔄 $name (Snap) already installed — skipping..."
+    else
+        echo "🆕 Installing $name via Snap..."
+        sudo snap install "$ref"
+        echo "✅ $name installed!"
+    fi
+}
+
+# --- App menu ---
+apps=(
+"Steam (.deb) — Official"
+"Discord (.deb) — Official but No Auto-Updates"
+"Discord (Flatpak) — Community/Partial Official"
+"Spotify (Flatpak) — Community Maintained"
+"Spotify (Snap) — Official"
+"VSCode (.deb) — Official"
+"Google Chrome (.deb) — Official"
+"OBS Studio (Flatpak) — Official"
+"Heroic Games Launcher (.deb) — Official but No Auto-Updates"
+"Heroic Games Launcher (Flatpak) — Official and Auto-Updates"
+"Prism Launcher (Flatpak) — Official (from Prism Launcher Devs)"
+"Zoom (.deb) — Official but No Auto-Updates"
+"Minecraft Launcher (.deb) — Official but No Auto-Updates (from Mojang)"
+"qBittorrent — Official in repo"
+"GIMP — Official in repo"
+"VLC (Flatpak) — Community Maintained"
+"VLC (Snap) — Official"
+)
+
+echo "Select apps to install (numbers separated by space):"
+for i in "${!apps[@]}"; do
+    printf "%2d) %s\n" "$((i+1))" "${apps[$i]}"
+done
+
+read -rp "Enter numbers: " -a selections
+
+# --- Process selected apps ---
+for num in "${selections[@]}"; do
+    case "$num" in
+        1) install_deb "https://steamcdn-a.akamaihd.net/client/installer/steam.deb" "Steam" ;;
+        2)
+            URL=$(curl -sI "https://discord.com/api/download?platform=linux&format=deb" \
+                | tr -d '\r' | grep -i '^location:' | awk '{print $2}')
+            install_deb "$URL" "Discord"
+            ;;
+        3) install_flatpak "Discord" "com.discordapp.Discord" ;;
+        4) install_flatpak "Spotify" "com.spotify.Client" ;;
+        5) install_snap "Spotify" "spotify" ;;
+        6)
+            sudo apt install -y software-properties-common apt-transport-https wget
+            wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/microsoft.gpg
+            sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://packages.microsoft.com/repos/code stable main"
+            sudo apt update
+            sudo apt install -y code
+            ;;
+        7) install_deb "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" "Google Chrome" ;;
+        8) install_flatpak "OBS Studio" "com.obsproject.Studio" ;;
+        9)
+            URL=$(curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases/latest \
+                  | grep browser_download_url | grep '\.deb' | cut -d '"' -f 4 | head -n 1)
+            install_deb "$URL" "Heroic Games Launcher"
+            ;;
+        10) install_flatpak "Heroic Games Launcher" "com.heroicgameslauncher.hgl" ;;
+        11) install_flatpak "Prism Launcher" "net.prismlauncher.PrismLauncher" ;;
+        12) install_deb "https://zoom.us/client/latest/zoom_amd64.deb" "Zoom" ;;
+        13) install_deb "https://launcher.mojang.com/download/Minecraft.deb" "Minecraft Launcher" ;;
+        14) sudo apt install -y qbittorrent ;;
+        15) sudo apt install -y gimp ;;
+        16) install_flatpak "VLC" "org.videolan.VLC" ;;
+        17) install_snap "VLC" "vlc" ;;
+        *) echo "⚠️ Invalid selection: $num" ;;
+    esac
+done
+
+echo -e "\n🎉 Selected apps installed!"
