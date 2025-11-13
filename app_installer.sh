@@ -60,14 +60,20 @@ apps=(
 "OBS Studio (Flatpak) — Official"
 "OBS Studio (PPA) — Official"
 "Heroic Games Launcher (.deb) — Official"
-"Heroic Games Launcher (Flatpak) — Official"
+"Heroic Games Launcher (Flatpak) — Official, Recommended by Devs"
 "Prism Launcher (Flatpak) — Community Project but Highly Recommended"
 "Zoom (.deb) — Official"
 "Minecraft Launcher (.deb) — Official from Mojang"
 "qBittorrent — Official in repo"
+"qBittorrent (Flatpak) — Official, Newer Version Than Repo"
 "GIMP — Official in repo"
+"GIMP (Flatpak) — Official, Newer Version Than Repo"
 "VLC (Flatpak) — Community Maintained"
 "VLC (Snap) — Official"
+"Mission Center (Flatpak) - Windows task manager like resource monitor"
+"LibreOffice — Official in repo (older than Flatpak/Snap versions)"
+"LibreOffice (Flatpak) — Official"
+"LibreOffice (Snap) — Official (launches a bit slow)"
 )
 
 echo "Select apps to install (numbers separated by space):"
@@ -111,9 +117,15 @@ for num in "${selections[@]}"; do
         13) install_deb "https://zoom.us/client/latest/zoom_amd64.deb" "Zoom" ;;
         14) install_deb "https://launcher.mojang.com/download/Minecraft.deb" "Minecraft Launcher" ;;
         15) sudo apt install -y qbittorrent ;;
-        16) sudo apt install -y gimp ;;
-        17) install_flatpak "VLC" "org.videolan.VLC" ;;
-        18) install_snap "VLC" "vlc" ;;
+        16) install_flatpak "qBittorrent" "org.qbittorrent.qBittorrent" ;;
+        17) sudo apt install -y gimp ;;
+        18) install_flatpak "GIMP" "org.gimp.GIMP" ;;
+        19) install_flatpak "VLC" "org.videolan.VLC" ;;
+        20) install_snap "VLC" "vlc" ;;
+        21) install_flatpak "Mission Center" "io.missioncenter.MissionCenter" ;;
+        22) sudo apt install -y libreoffice ;;
+        23) install_flatpak "LibreOffice" "org.libreoffice.LibreOffice" ;;
+        24) install_snap "LibreOffice" "libreoffice" ;;
         *) echo "⚠️ Invalid selection: $num" ;;
     esac
 done
