@@ -41,8 +41,8 @@ while true; do
     flatpak update -y
     echo -e "\n🔄 Updating the snap packages..."
     sudo snap refresh
-    echo -e "\n🔄 Updating the scripts..."
-    bash "$SCRIPT_UPDATER_SCRIPT" --silent
+    echo -e "\n🔄 Updating the scripts...\n"
+    bash "$SCRIPT_UPDATER_SCRIPT --silent"
     echo -e "\n🔄 Updating external .deb packages..."
     bash "$HOME/.ubuntu-setup-scripts/external_deb_updater.sh"
     echo -e "\n✅ System update completed, restarting your PC is recommended."
