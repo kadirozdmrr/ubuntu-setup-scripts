@@ -19,7 +19,7 @@ done
 SCRIPTS=("docker.sh" "mssql.sh" "firefox_flatpak.sh" "devtools_terminal.sh" "app_installer.sh" "external_deb_updater.sh" "main.sh")
 
 for script in "${SCRIPTS[@]}"; do
-    echo "🔄 Updating $script..."
+    echo "\n🔄 Updating $script..."
     curl -fsSL "$REPO_URL/$script" -o "$WORKDIR/$script"
     chmod +x "$WORKDIR/$script"
 done

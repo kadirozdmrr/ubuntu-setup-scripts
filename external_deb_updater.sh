@@ -101,4 +101,4 @@ fetch_minecraft
 # Cleanup
 rm -rf "$TMP_DIR"
 
-echo "🎉 Available .deb apps have been updated!"
+

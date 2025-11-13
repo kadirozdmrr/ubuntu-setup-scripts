@@ -120,4 +120,4 @@ for num in "${selections[@]}"; do
     esac
 done
 
-echo -e "\n🎉 Selected apps installed! If you installed any no auto-updates .deb apps, you can use *Update External .deb Packeges* script for updating them."
+echo -e "\n🎉 Selected apps installed! Do not forget to use 'Update the System' option in main menu for updating them and the system."
