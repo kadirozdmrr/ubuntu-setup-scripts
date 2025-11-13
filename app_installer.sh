@@ -55,7 +55,7 @@ apps=(
 "Discord (Flatpak) — Community/Partially Official and Auto Updates"
 "Spotify (Flatpak) — Community Maintained"
 "Spotify (Snap) — Official"
-"VSCode (.deb) — Official, Microsoft Repo Added"
+"Visual Studio Code (.deb) — Official, Microsoft Repo Added"
 "Google Chrome (.deb) — Official, Google Repo Added"
 "OBS Studio (Flatpak) — Official"
 "OBS Studio (PPA) — Official"
@@ -118,4 +118,4 @@ for num in "${selections[@]}"; do
     esac
 done
 
-echo -e "\n🎉 Selected apps installed! Do not forget to use 'Update the System' option in main menu for updating them and also the system."
+echo -e "\n🎉 Selected apps installed! Do not forget to use 'Update the System' option in main menu for updating them!"
