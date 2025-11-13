@@ -44,7 +44,7 @@ while true; do
     echo -e "\n🔄 Updating the snap packages..."
     sudo snap refresh -y
     echo -e "✅\n Snap packages are updated!\n"
-    bash "$SCRIPT_UPDATER_SCRIPT" --silent
+    bash "$HOME/.ubuntu-setup-scripts/script_updater.sh" --silent
     echo -e "\n🔄 Updating external .deb packages..."
     bash "$HOME/.ubuntu-setup-scripts/external_deb_updater.sh"
     echo -e "✅\n External .deb packages are updated!\n"
