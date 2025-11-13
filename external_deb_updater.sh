@@ -14,9 +14,6 @@ TMP_DIR="/tmp/app-updates"
 mkdir -p "$TMP_DIR"
 cd "$TMP_DIR"
 
-echo "🚀 External .deb Updater started..."
-echo
-
 # --- Helper: check if package is installed ---
 is_installed() {
     dpkg -s "$1" &>/dev/null
