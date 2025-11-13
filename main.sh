@@ -14,8 +14,9 @@ MSSQL_SCRIPT="mssql.sh"
 FF_FIREFOX_SCRIPT="firefox_flatpak.sh"
 DEV_TERMINAL_SCRIPT="devtools_terminal.sh"
 APPS_SCRIPT="app_installer.sh"
+UPDATER_SCRIPT="external_deb_updater.sh"
 
-SCRIPTS=("$DOCKER_SCRIPT" "$MSSQL_SCRIPT" "$FF_FIREFOX_SCRIPT" "$DEV_TERMINAL_SCRIPT" "$APPS_SCRIPT")
+SCRIPTS=("$DOCKER_SCRIPT" "$MSSQL_SCRIPT" "$FF_FIREFOX_SCRIPT" "$DEV_TERMINAL_SCRIPT" "$APPS_SCRIPT" "$UPDATER_SCRIPT")
 
 # Create working dir
 mkdir -p "$WORKDIR"
@@ -46,6 +47,7 @@ while true; do
     echo "4) Docker Engine"
     echo "5) MSSQL Server 2022"
     echo "6) Update scripts"
+    echo "7) Update External .deb Packages"
     echo "0) Exit"
     echo -n "Choose an option: "
     read -r choice
@@ -65,6 +67,7 @@ while true; do
             done
             echo "✅ All scripts updated successfully!"
             ;;
+        7) bash "$UPDATER_SCRIPT" ;;    
         0)
             echo -e "\n👋 Exiting master setup."
             break
