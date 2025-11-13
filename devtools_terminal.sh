@@ -33,6 +33,7 @@ aliases=(
     ["lt"]="eza -aT --color=always --group-directories-first --icons"
     ["l."]="eza -a | grep -e '^\.'"
     ["fastfetch"]="fastfetch -c examples/10"
+    ["mastersc"]="bash $HOME/.ubuntu-setup-scripts/main.sh"
     ["update"]="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && flatpak update -y && sudo snap refresh && bash "$HOME/.ubuntu-setup-scripts/script_updater.sh" --silent && bash $HOME/.ubuntu-setup-scripts/external_deb_updater.sh"
 )
 for alias_name in "${!aliases[@]}"; do
@@ -238,5 +239,5 @@ EOF
 echo "✅ Starship configuration installed at $STARSHIP_CONFIG"
 
 echo -e "\n🎉 Devtools and terminal setup completed, restart your terminal when possible."
-echo -e "\n📝 Tip: You can now use the 'update' alias to update all your apps (including no auto-update .debs) whenever you want."
+echo -e "\n📝 Tip: You can now use the 'mastersc' alias to easily launch master setup menu!"
 
