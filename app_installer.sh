@@ -51,8 +51,8 @@ install_snap() {
 # --- App menu ---
 apps=(
 "Steam (.deb) — Official"
-"Discord (.deb) — Official but No Auto-Updates"
-"Discord (Flatpak) — Community/Partial Official"
+"Discord (.deb) — Official but No Auto-Updates, It Will Just Tell You When There's an Update"
+"Discord (Flatpak) — Community/Partial Official and Auto Updates"
 "Spotify (Flatpak) — Community Maintained"
 "Spotify (Snap) — Official"
 "VSCode (.deb) — Official"

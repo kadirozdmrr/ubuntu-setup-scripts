@@ -10,7 +10,8 @@ Scripts include help for setting up:
 - 🐋 **Docker** & Docker Compose  
 - 🧱 **Microsoft SQL Server 2022** inside Docker  
 - ☕ **Development tools** (`default-jdk`, `build-essential`, `gdb` for now) 
-- 💻 **Terminal configuration tweaks**  
+- 💻 **Terminal configuration tweaks**
+- 🆕 External .deb Updating (Zoom, Discord, Heroic Games Launcher, Minecraft Launcher)  
 
 ---
 
