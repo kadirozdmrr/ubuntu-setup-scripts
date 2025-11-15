@@ -113,7 +113,7 @@ for num in "${selections[@]}"; do
             install_deb "$URL" "Heroic Games Launcher"
             ;;
         11) install_flatpak "Heroic Games Launcher" "com.heroicgameslauncher.hgl" ;;
-        12) install_flatpak "Prism Launcher" "net.prismlauncher.PrismLauncher" ;;
+        12) install_flatpak "Prism Launcher" "org.prismlauncher.PrismLauncher" ;;
         13) install_deb "https://zoom.us/client/latest/zoom_amd64.deb" "Zoom" ;;
         14) install_deb "https://launcher.mojang.com/download/Minecraft.deb" "Minecraft Launcher" ;;
         15) sudo apt install -y qbittorrent ;;
