@@ -1,4 +1,4 @@
-🧰 Ubuntu Setup Scripts
+🧰 Ubuntu (24.04 LTS recommended) Setup Scripts
 
 A collection of Bash scripts that help you quickly set up a fresh Ubuntu installation, you can choose which ones to run.
 
