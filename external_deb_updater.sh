@@ -36,7 +36,7 @@ update_deb() {
     fi
     if ! is_installed "$pkg_name"; then
         echo "⚠️  $pkg_pretty is not installed — skipping."
-        echo "   (Install it manually, then rerun this script to keep it updated.)"
+        echo "   (You can install it from app installer, then rerun this script to keep it updated.)"
         echo
         return 0
     fi
