@@ -74,6 +74,7 @@ apps=(
 "LibreOffice — Official in repo (older than Flatpak/Snap versions)"
 "LibreOffice (Flatpak) — Official"
 "LibreOffice (Snap) — Official (launches a bit slow)"
+"Obsidian (.deb) - Official"
 )
 
 echo "Select apps to install (numbers separated by space):"
@@ -126,6 +127,11 @@ for num in "${selections[@]}"; do
         22) sudo apt install -y libreoffice ;;
         23) install_flatpak "LibreOffice" "org.libreoffice.LibreOffice" ;;
         24) install_snap "LibreOffice" "libreoffice" ;;
+        25)
+            URL=$(curl -s https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest \
+                  | grep browser_download_url | grep '\.deb' | cut -d '"' -f 4 | head -n 1)
+            install_deb "$URL" "Obsidian"
+            ;;
         *) echo "⚠️ Invalid selection: $num" ;;
     esac
 done
