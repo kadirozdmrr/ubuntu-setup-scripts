@@ -17,6 +17,128 @@ sudo update-pciids
 # Install Starship
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 
+# Fastfetch Configuration
+
+echo "⬇️ Configuring Fastfetch..."
+
+mkdir -p "$HOME/.config/fastfetch"
+
+cat > "$HOME/.config/fastfetch/config.json" << 'EOF'
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "~/.config/fastfetch/fedora.png",
+        "type": "kitty",
+        "height": 17,
+        "width": 32,
+        "padding": {
+            "top": 2,
+            "left": 3
+        }
+    },
+    "display": {
+        "separator": "  ",
+        "color": {
+            "keys": "light_blue"
+        }
+    },
+    "modules": [
+        "break",
+        {
+            "type": "title",
+            "key": " ",
+            "color": {
+                "user": "light_blue",
+                "at": "white",
+                "host": "magenta"
+            }
+        },
+        "break",
+        {
+            "type": "command",
+            "key": " 󱋩",
+            "text": "/usr/libexec/bazzite-fetch-image"
+        },
+        {
+            "type": "os",
+            "key": " 󰣛",
+            "format": "{pretty-name}"
+        },
+        {
+            "type": "kernel",
+            "key": " ",
+            "format": "{1} {2}"
+        },
+        {
+            "type": "uptime",
+            "key": " 󰅐"
+        },
+        "break",
+        {
+            "type": "host",
+            "key": " 󰾰"
+        },
+        {
+            "type": "cpu",
+            "key": " 󰻠"
+        },
+        {
+            "type": "gpu",
+            "key": " 󰍛"
+        },
+        {
+            "type": "memory",
+            "key": " "
+        },
+        {
+            "type": "disk",
+            "key": " "
+        },
+        {
+            "type": "display",
+            "key": " 󰍹"
+        },
+        {
+            "type": "battery",
+            "key": " "
+        },
+        {
+            "type": "gamepad",
+            "key": " 󰖺"
+        },
+        "break",
+        {
+            "type": "de",
+            "key": " 󰕮"
+        },
+        {
+            "type": "wm",
+            "key": " "
+        },
+        {
+            "type": "shell",
+            "key": " "
+        },
+        {
+            "type": "terminal",
+            "key": " "
+        },
+        {
+            "type": "packages",
+            "key": " 󰏖"
+        },
+        "break",
+        {
+            "type": "colors",
+            "paddingLeft": 2,
+            "symbol": "circle"
+        }
+    ]
+}
+EOF
+
+echo "✅ Fastfetch configured!"
+
 # --- Shell configuration ---
 
 # Create ~/.bash_aliases if not exists
@@ -32,7 +154,6 @@ aliases=(
     ["ll"]="eza -l --color=always --group-directories-first --icons"
     ["lt"]="eza -aT --color=always --group-directories-first --icons"
     ["l."]="eza -a | grep -e '^\.'"
-    ["fastfetch"]="fastfetch -c examples/10"
     ["mastersc"]="bash $HOME/.ubuntu-setup-scripts/main.sh"
     ["update"]="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && flatpak update -y && sudo snap refresh && bash "$HOME/.ubuntu-setup-scripts/script_updater.sh" --silent && bash $HOME/.ubuntu-setup-scripts/external_deb_updater.sh"
 )
