@@ -27,8 +27,6 @@ cat > "$HOME/.config/fastfetch/config.json" << 'EOF'
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
-        "height": 17,
-        "width": 32,
         "padding": {
             "top": 2,
             "left": 3
