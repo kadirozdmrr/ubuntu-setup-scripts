@@ -11,7 +11,7 @@ Scripts include help for setting up:
 - 🧱 **Microsoft SQL Server 2022** inside Docker  
 - ☕ **Development tools** (`default-jdk`, `build-essential`, `gdb` for now) 
 - 💻 **Terminal configuration tweaks**
-- 🆕 **Update the System Including External .deb Packages (Zoom, Discord, Heroic Games Launcher, Minecraft Launcher)**  
+- 🆕 **Update the System Including External .deb Packages (Zoom, Discord, Heroic Games Launcher, Minecraft Launcher, Obsidian)**  
 
 ---
 
