@@ -74,7 +74,9 @@ apps=(
 "LibreOffice — Official in repo (older than Flatpak/Snap versions)"
 "LibreOffice (Flatpak) — Official"
 "LibreOffice (Snap) — Official (launches a bit slow)"
-"Obsidian (.deb) - Official"
+"Obsidian (.deb) — Official"
+"Flatseal (Flatpak) — App to Manage Flatpak Permissions"
+"Gear Lever (Flatpak) — App to Manage AppImages"
 )
 
 echo "Select apps to install (numbers separated by space):"
@@ -132,6 +134,8 @@ for num in "${selections[@]}"; do
                   | grep browser_download_url | grep '\.deb' | cut -d '"' -f 4 | head -n 1)
             install_deb "$URL" "Obsidian"
             ;;
+        26) install_flatpak "Flatseal" "com.github.tchx84.Flatseal" ;;
+        27) install_flatpak "Gear Lever" "it.mijorus.gearlever" ;;
         *) echo "⚠️ Invalid selection: $num" ;;
     esac
 done
