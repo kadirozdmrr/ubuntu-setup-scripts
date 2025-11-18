@@ -57,7 +57,7 @@ cat > "$HOME/.config/fastfetch/config.json" << 'EOF'
         },
         {
             "type": "os",
-            "key": " 󰣛",
+            "key": " ",
             "format": "{pretty-name}"
         },
         {
