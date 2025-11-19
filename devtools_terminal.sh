@@ -9,7 +9,7 @@ sudo add-apt-repository -y ppa:zhangsongcui3371/fastfetch
 sudo apt update
 
 # Install dev tools
-sudo apt install -y git curl fastfetch build-essential gdb default-jdk eza unrar p7zip-full p7zip-rar
+sudo apt install -y gnome-terminal git curl fastfetch build-essential gdb default-jdk eza unrar p7zip-full p7zip-rar distrobox
 
 # Update hardware PCI IDs
 sudo update-pciids
